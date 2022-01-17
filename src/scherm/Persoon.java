@@ -26,5 +26,5 @@ public class Persoon {
     public String getAchternaam(){
         return achternaam;
     }
-    //afmaken
+
 }

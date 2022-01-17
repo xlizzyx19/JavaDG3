@@ -1,8 +1,6 @@
 package scherm;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class InvoerFrame extends JFrame {
@@ -29,21 +27,18 @@ public class InvoerFrame extends JFrame {
 
         JButton knop = new JButton("OK");
         InvoerFrame hier = this;
-        knop.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //bewaren in de lijst
-                Persoon persoon = new Persoon("Joep", "meloen");
+        knop.addActionListener(e -> {
+            //bewaren in de lijst
+            Persoon persoon = new Persoon("Joep", "meloen");
 
 //                persoon.setVoornaam(jtVoornaam.getText());
 
 //                persoon.setAchternaam("Meloen");
-                personen.add(persoon);
-                //Hoe komt de lijst hier op nette manier
+            personen.add(persoon);
+            //Hoe komt de lijst hier op nette manier
 
-                //scherm gesloten
-                hier.dispose();
-            }
+            //scherm gesloten
+            hier.dispose();
         });
         panel.add(knop);
     }
