@@ -9,18 +9,18 @@ import java.util.ArrayList;
 public class MyFrame extends JFrame {
 	private JPanel panel;
 
-	ArrayList<Persoon> personen = new ArrayList();
+	ArrayList<Persoon> personen = new ArrayList <Persoon>();
 
 	public MyFrame() {
 
 		//Test data, straks weggooien
-		personen.add(new Persoon("Lisa"));
-		personen.add(new Persoon("Ivan"));
-		personen.add(new Persoon("Atakan"));
+		personen.add(new Persoon("Lisa", "van der veen"));
+		personen.add(new Persoon("Ivan", "karst"));
+		personen.add(new Persoon("Atakan", "Karaca"));
 
 		//hoogte en breedte van Jframe gemaakt
 		this.setSize(480, 480);
-		this.setDefaultCloseOperation(2);
+		this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
 		//panel maken
 		panel = new JPanel();

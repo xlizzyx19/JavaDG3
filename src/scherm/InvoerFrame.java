@@ -15,7 +15,7 @@ public class InvoerFrame extends JFrame {
 
         //hoogte en breedte van Jframe gemaakt
         this.setSize(480, 480);
-        this.setDefaultCloseOperation(2);
+        this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
         //panel maken
         panel = new JPanel();
@@ -33,8 +33,8 @@ public class InvoerFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //bewaren in de lijst
-                Persoon persoon = new Persoon();
-                persoon.setVoornaam("Joep");
+                Persoon persoon = new Persoon("Joep", "meloen");
+
 //                persoon.setVoornaam(jtVoornaam.getText());
 
 //                persoon.setAchternaam("Meloen");
@@ -50,4 +50,7 @@ public class InvoerFrame extends JFrame {
 
 
 }
+
+
+
 
