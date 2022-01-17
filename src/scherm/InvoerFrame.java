@@ -1,6 +1,7 @@
 package scherm;
 
 import javax.swing.*;
+import java.awt.*;
 import java.util.ArrayList;
 
 public class InvoerFrame extends JFrame {
@@ -17,23 +18,37 @@ public class InvoerFrame extends JFrame {
 
         //panel maken
         panel = new JPanel();
+        panel.setLayout(new GridLayout(5,0));
+        panel.setSize(100,100);
         //panel opbouwen (schilderen)
-        JLabel label1 = new JLabel("label2");
+        JLabel label1 = new JLabel("formulier:", SwingConstants.CENTER);
+        label1.setFont(new Font("Serif", Font.PLAIN, 32));
         panel.add(label1);
+
+        //inputveld 1
+        JTextField jtVoornaam = new JTextField();
+        jtVoornaam.setHorizontalAlignment(JTextField.CENTER);
+        jtVoornaam.setText("vul hier je voornaam in !");
+        jtVoornaam.setSize(190,20);
+        panel.add(jtVoornaam);
+
+        //inputveld 2
+        JTextField jtAchternaam = new JTextField();
+        jtAchternaam.setHorizontalAlignment(JTextField.CENTER);
+        jtAchternaam.setText("vul hier je achternaam in !");
+        jtAchternaam.setSize(190,20);
+        panel.add(jtAchternaam);
         this.add(panel);
 
 
         //persoonvelden om in te vullen
 
-        JButton knop = new JButton("OK");
+        JButton knop = new JButton("verzend");
         InvoerFrame hier = this;
         knop.addActionListener(e -> {
             //bewaren in de lijst
-            Persoon persoon = new Persoon("Joep", "meloen");
+            Persoon persoon = new Persoon(jtVoornaam.getText(), "meloen");
 
-//                persoon.setVoornaam(jtVoornaam.getText());
-
-//                persoon.setAchternaam("Meloen");
             personen.add(persoon);
             //Hoe komt de lijst hier op nette manier
 
