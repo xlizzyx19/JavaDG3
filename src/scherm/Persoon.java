@@ -11,6 +11,10 @@ public class Persoon {
         this.achternaam = achternaam;
     }
 
+    public Persoon() {
+
+    }
+
     public void setVoornaam(String voornaam ) {
         this.voornaam = voornaam;
     }
