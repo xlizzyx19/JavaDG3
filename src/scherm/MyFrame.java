@@ -2,29 +2,30 @@ package scherm;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 
+@SuppressWarnings("ALL")
 public class MyFrame extends JFrame {
-	private JPanel panel;
+	AllePersonen personen;
+	DefaultListModel<Persoon> model;
 
-	public MyFrame() {
+	public MyFrame(JPanel ignoredPanel) {
 
-		JList jl;
+		JList<Persoon> jl;
 		JLabel lb;
 		JButton jb1;
 
 
-		DefaultListModel model = new DefaultListModel();
-		jl = new JList(model);
+
+
+		model = new DefaultListModel<>();
+		jl = new JList<>(model);
 		jl.setBounds(50, 100, 500, 300);
 		jl.setFont(new Font("Serif", Font.PLAIN, 20));
 
 		add(jl);
 
-		ArrayList<Persoon> personen = new ArrayList<>();
+		personen = new AllePersonen();
 
 		//Test data, straks weggooien
 		personen.add(new Persoon("Lisa", "van der Veen"));
@@ -32,11 +33,12 @@ public class MyFrame extends JFrame {
 		personen.add(new Persoon("Atakan", "Karaca"));
 
 		int i = 0;
-		for (Persoon text : personen) {
+		for (Persoon text : personen.getAll()) {
 			model.add(i, text);
 			i++;
 		}
 
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLayout(null);
 		setVisible(true);
 
@@ -55,23 +57,33 @@ public class MyFrame extends JFrame {
 		jb1.setBounds(50, 200, 100, 30);
 		jb1.setLocation(250 , 420);
 		add(jb1);
+		MyFrame hier = this;
+		jb1.addActionListener(e -> {
+			InvoerFrame invoerFrame = new InvoerFrame(personen, hier);
+			invoerFrame.setVisible(true);
 
-		jb1.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				InvoerFrame invoerFrame = new InvoerFrame();
-				invoerFrame.setVisible(true);
+				//JList opnieuw vullen met alles uit de lijst personen
+				//List model zorgt voor dat de J list gevuld wordt vanuit de personen lijst
 
-					//JList opnieuw vullen met alles uit de lijst personen
-					//Listmodel zorgt voor dat de JLIST gevuld wordt vanuit de personen lijst
-
-
-				}
 
 			});
 		}
 
 
 	private void Test() {
+	}
+
+	public void update() {
+
+		for(Persoon p: personen.getAll()){
+			System.out.println(p);
+		}
+
+		model.clear();
+		int i = 0;
+		for (Persoon text : personen.getAll()) {
+			model.add(i, text);
+			i++;
+		}
 	}
 }

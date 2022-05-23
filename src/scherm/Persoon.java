@@ -1,5 +1,6 @@
 package scherm;
 
+@SuppressWarnings("ALL")
 public class Persoon {
 
     private String voornaam;
@@ -29,6 +30,10 @@ public class Persoon {
 
     public String getAchternaam(){
         return achternaam;
+    }
+
+    public String toString(){
+        return getVoornaam()+" "+getAchternaam();
     }
 
 }
