@@ -9,6 +9,8 @@ import java.util.ArrayList;
 
 public class MyFrame extends JFrame {
 	private JPanel panel;
+	AllePersonen personen;
+	DefaultListModel model;
 
 	public MyFrame() {
 
@@ -17,14 +19,16 @@ public class MyFrame extends JFrame {
 		JButton jb1;
 
 
-		DefaultListModel model = new DefaultListModel();
+
+
+		model = new DefaultListModel();
 		jl = new JList(model);
 		jl.setBounds(50, 100, 500, 300);
 		jl.setFont(new Font("Serif", Font.PLAIN, 20));
 
 		add(jl);
 
-		ArrayList<Persoon> personen = new ArrayList<>();
+		personen = new AllePersonen();
 
 		//Test data, straks weggooien
 		personen.add(new Persoon("Lisa", "van der Veen"));
@@ -32,11 +36,12 @@ public class MyFrame extends JFrame {
 		personen.add(new Persoon("Atakan", "Karaca"));
 
 		int i = 0;
-		for (Persoon text : personen) {
+		for (Persoon text : personen.getAll()) {
 			model.add(i, text);
 			i++;
 		}
 
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setLayout(null);
 		setVisible(true);
 
@@ -55,11 +60,11 @@ public class MyFrame extends JFrame {
 		jb1.setBounds(50, 200, 100, 30);
 		jb1.setLocation(250 , 420);
 		add(jb1);
-
+		MyFrame hier = this;
 		jb1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				InvoerFrame invoerFrame = new InvoerFrame();
+				InvoerFrame invoerFrame = new InvoerFrame(personen, hier);
 				invoerFrame.setVisible(true);
 
 					//JList opnieuw vullen met alles uit de lijst personen
@@ -73,5 +78,19 @@ public class MyFrame extends JFrame {
 
 
 	private void Test() {
+	}
+
+	public void update() {
+
+		for(Persoon p: personen.getAll()){
+			System.out.println(p);
+		}
+
+		model.clear();
+		int i = 0;
+		for (Persoon text : personen.getAll()) {
+			model.add(i, text);
+			i++;
+		}
 	}
 }

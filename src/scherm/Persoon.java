@@ -31,4 +31,8 @@ public class Persoon {
         return achternaam;
     }
 
+    public String toString(){
+        return getVoornaam()+" "+getAchternaam();
+    }
+
 }

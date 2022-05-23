@@ -1,16 +1,20 @@
 package scherm;
 
+
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
 public class InvoerFrame extends JFrame {
-    private ArrayList<Persoon> personen;
+    private MyFrame hoofdscherm;
+    private AllePersonen personen;
 
     private JPanel panel;
 
-    public InvoerFrame(ArrayList<Persoon> personen) {
+    public InvoerFrame(AllePersonen personen, MyFrame hoofd) {
         this.personen = personen;
+        this.hoofdscherm = hoofd;
 
         //hoogte en breedte van Jframe gemaakt
         this.setSize(480, 480);
@@ -45,16 +49,17 @@ public class InvoerFrame extends JFrame {
 
         JButton knop = new JButton("verzend");
         InvoerFrame hier = this;
-        knop.addActionListener(e -> {
-            //bewaren in de lijst
-            Persoon persoon = new Persoon(jtVoornaam.getText(), "meloen");
+            knop.addActionListener(e -> {
+                //bewaren in de lijst
+                Persoon persoon = new Persoon(jtVoornaam.getText(), "meloen");
 
-            personen.add(persoon);
-            //Hoe komt de lijst hier op nette manier
+                personen.add(persoon);
+                //Hoe komt de lijst hier op nette manier
 
-            //scherm gesloten
-            hier.dispose();
-        });
+                hoofdscherm.update();
+                //scherm gesloten
+                hier.dispose();
+            });
         panel.add(knop);
     }
 
