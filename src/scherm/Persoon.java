@@ -1,5 +1,6 @@
 package scherm;
 
+@SuppressWarnings("ALL")
 public class Persoon {
 
     private String voornaam;

@@ -4,7 +4,6 @@ package scherm;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
 public class InvoerFrame extends JFrame {
     private MyFrame hoofdscherm;
@@ -51,7 +50,7 @@ public class InvoerFrame extends JFrame {
         InvoerFrame hier = this;
             knop.addActionListener(e -> {
                 //bewaren in de lijst
-                Persoon persoon = new Persoon(jtVoornaam.getText(),(jtAchternaam.getText()));
+                Persoon persoon = new Persoon(jtVoornaam.getText(),jtAchternaam.getText());
 
                 personen.add(persoon);
                 //Hoe komt de lijst hier op nette manier
