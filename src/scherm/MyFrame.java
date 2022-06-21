@@ -2,6 +2,8 @@ package scherm;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 
 @SuppressWarnings("ALL")
@@ -16,8 +18,6 @@ public class MyFrame extends JFrame {
 		JButton jb1;
 
 
-
-
 		model = new DefaultListModel<>();
 		jl = new JList<>(model);
 		jl.setBounds(50, 100, 500, 300);
@@ -26,11 +26,6 @@ public class MyFrame extends JFrame {
 		add(jl);
 
 		personen = new AllePersonen();
-
-		//Test data, straks weggooien
-		personen.add(new Persoon("Lisa", "van der Veen"));
-		personen.add(new Persoon("Ivan", "Karst"));
-		personen.add(new Persoon("Atakan", "Karaca"));
 
 		int i = 0;
 		for (Persoon text : personen.getAll()) {
@@ -62,12 +57,12 @@ public class MyFrame extends JFrame {
 			InvoerFrame invoerFrame = new InvoerFrame(personen, hier);
 			invoerFrame.setVisible(true);
 
-				//JList opnieuw vullen met alles uit de lijst personen
-				//List model zorgt voor dat de J list gevuld wordt vanuit de personen lijst
+			//JList opnieuw vullen met alles uit de lijst personen
+			//List model zorgt voor dat de J list gevuld wordt vanuit de personen lijst
 
 
-			});
-		}
+		});
+	}
 
 
 	private void Test() {
