@@ -15,9 +15,6 @@ public class MyFrame extends JFrame {
 		JLabel lb;
 		JButton jb1;
 
-
-
-
 		model = new DefaultListModel<>();
 		jl = new JList<>(model);
 		jl.setBounds(50, 100, 500, 300);
@@ -29,8 +26,7 @@ public class MyFrame extends JFrame {
 
 		//Test data, straks weggooien
 		personen.add(new Persoon("Lisa", "van der Veen"));
-		personen.add(new Persoon("Ivan", "Karst"));
-		personen.add(new Persoon("Atakan", "Karaca"));
+
 
 		int i = 0;
 		for (Persoon text : personen.getAll()) {
@@ -65,10 +61,8 @@ public class MyFrame extends JFrame {
 				//JList opnieuw vullen met alles uit de lijst personen
 				//List model zorgt voor dat de J list gevuld wordt vanuit de personen lijst
 
-
 			});
 		}
-
 
 	private void Test() {
 	}

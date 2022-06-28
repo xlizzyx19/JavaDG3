@@ -1,7 +1,5 @@
 package scherm;
 
-
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -61,8 +59,6 @@ public class InvoerFrame extends JFrame {
             });
         panel.add(knop);
     }
-
-
 }
 
 
