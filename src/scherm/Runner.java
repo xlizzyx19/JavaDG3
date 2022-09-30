@@ -11,7 +11,6 @@ public class Runner {
 
 		jFrame.setVisible(true);
 
-
 	}
 
 }
