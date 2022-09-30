@@ -50,7 +50,7 @@ public class MyFrame extends JFrame {
 		setVisible(true);
 
 
-		jb1 = new JButton("Vul Hier In!");
+		jb1 = new JButton("Vul Hier In!!");
 		jb1.setBounds(50, 200, 100, 30);
 		jb1.setLocation(250 , 420);
 		add(jb1);
