@@ -61,7 +61,3 @@ public class InvoerFrame extends JFrame {
         panel.add(knop);
     }
 }
-
-
-
-
