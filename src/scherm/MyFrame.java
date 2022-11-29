@@ -24,10 +24,6 @@ public class MyFrame extends JFrame {
 
 		personen = new AllePersonen();
 
-		//Test data, straks weggooien
-//		personen.add(new Persoon("Lisa", "van der Veen"));
-		personen.add(new Persoon("Ivan", "Karst"));
-		personen.add(new Persoon("Atakan", "Karaca"));
 
 		int i = 0;
 		for (Persoon text : personen.getAll()) {
