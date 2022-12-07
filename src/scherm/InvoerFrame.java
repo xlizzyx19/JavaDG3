@@ -41,21 +41,16 @@ public class InvoerFrame extends JFrame {
         panel.add(jtAchternaam);
         this.add(panel);
 
-
-        //persoonvelden om in te vullen
-
         JButton knop = new JButton("verzend");
         InvoerFrame hier = this;
         getRootPane().setDefaultButton(knop);
         knop.addActionListener(e -> {
-            //bewaren in de lijst
             Persoon persoon = new Persoon(jtVoornaam.getText(),jtAchternaam.getText());
 
             personen.add(persoon);
-            //Hoe komt de lijst hier op nette manier
+
 
             hoofdscherm.update();
-            //scherm gesloten
             hier.dispose();
         });
         panel.add(knop);

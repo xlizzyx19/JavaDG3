@@ -11,7 +11,6 @@ public class AllePersonen {
 
     private String tableName = "persoon";
 
-
     public void add(Persoon persoon) {
         try {
             Connection connection = DriverManager.getConnection(

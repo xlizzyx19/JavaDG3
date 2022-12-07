@@ -24,7 +24,6 @@ public class MyFrame extends JFrame {
 
 		personen = new AllePersonen();
 
-
 		int i = 0;
 		for (Persoon text : personen.getAll()) {
 			model.add(i, text);
@@ -54,15 +53,8 @@ public class MyFrame extends JFrame {
 		jb1.addActionListener(e -> {
 			InvoerFrame invoerFrame = new InvoerFrame(personen, hier);
 			invoerFrame.setVisible(true);
-
-				//JList opnieuw vullen met alles uit de lijst personen
-				//List model zorgt voor dat de J list gevuld wordt vanuit de personen lijst
 			});
 		}
-
-
-	private void Test() {
-	}
 
 	public void update() {
 
