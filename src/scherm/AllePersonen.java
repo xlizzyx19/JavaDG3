@@ -8,15 +8,26 @@ import java.util.ArrayList;
 
 
 public class AllePersonen {
-    private ArrayList<Persoon> personen = new ArrayList<>();
+
     private String tableName = "persoon";
 
 
     public void add(Persoon persoon) {
-//        String sql = "Insert into personen values("+persoon.getAchternaam()+")";
+        try {
+            Connection connection = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/a3_java", "root", "");
+            Statement stmt = connection.createStatement();
+
+            String sql = "INSERT INTO `persoon` (`voornaam`, `achternaam`) VALUES ('" + persoon.getVoornaam() + "', '" + persoon.getAchternaam() + "');";
+            stmt.execute(sql);
+            connection.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public ArrayList<Persoon> getAll() {
+        ArrayList<Persoon> personen = new ArrayList<>();
         try {
             Connection connection = DriverManager.getConnection(
                     "jdbc:mysql://localhost:3306/a3_java", "root", "");
